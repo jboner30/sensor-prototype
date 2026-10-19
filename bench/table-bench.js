@@ -13,11 +13,12 @@
 
 window.TABLE = {
   // The HC-SR04 example. Replace these with your own signals and rows.
-  signals: ['present', 'near'],
+  signals: ['locked in', 'focus drifting', 'annoyance', 'nothing'],
 
   states: [
-    { name: 'close',  when: s => s.near > 0.85,   hold: 0.5 },
-    { name: 'here',   when: s => s.present > 0.5, hold: 1 },
-    { name: 'nobody', when: s => s.present < 0.2, hold: 2 },
+    { name: 'locked in',  when: s => s.near > 0.85,   hold: 0.5 },
+    { name: 'focus drifting',   when: s => s.present > 0.5, hold: 1 },
+    { name: 'annoyance', when: s => s.open > 0.4, hold: 1 },
+    { name: 'nothing', when: s => s.present < 0.2, hold: 2 },
   ],
 };
