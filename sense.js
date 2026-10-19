@@ -34,8 +34,8 @@ const SIGNALS = {
   // missed frame does not count as somebody leaving.
   present: result => (result.faceLandmarks.length > 0 ? 1 : 0),
 
-  // open: the worked signal. jawOpen is one of the 52 scores, already 0 to 1.
-  open: result => score(result, 'jawOpen'),
+  // open: the worked signal. eyeSquintLeft is one of the 52 scores, already 0 to 1.
+  open: result => score(result, 'eyeSquintLeft'),
 
   // Your signal goes here. Two patterns to copy:
   //
