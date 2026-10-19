@@ -11,7 +11,7 @@
 //          Keep "nothing" last, so it catches everything the other rows miss.
 
 window.TABLE = {
-  signals: ['present', 'open'],
+  signals: ['locked in', 'focus drifting', 'annoyance', 'nothing'],
 
   states: [
     // These three rows are an example. Replace them with your own words.
