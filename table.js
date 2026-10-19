@@ -8,15 +8,16 @@
 // states:  checked top to bottom; the first row whose rule is true wins.
 //          hold is in seconds: how long a rule has to stay true before the state
 //          changes. Without it the piece flickers between two words.
-//          Keep "nobody" last, so it catches everything the other rows miss.
+//          Keep "nothing" last, so it catches everything the other rows miss.
 
 window.TABLE = {
   signals: ['present', 'open'],
 
   states: [
     // These three rows are an example. Replace them with your own words.
-    { name: 'open',   when: s => s.present > 0.5 && s.open > 0.4, hold: 0.5 },
-    { name: 'here',   when: s => s.present > 0.5,                 hold: 1 },
-    { name: 'nobody', when: s => s.present < 0.2,                 hold: 2 },
+    { name: 'locked in',   when: s => s.present > 0.5 && s.open > 0.4, hold: 0.5 },
+    { name: 'focus drifting',   when: s => s.present > 0.5,                 hold: 1 },
+    { name: 'annoyance',        when: s => s.open > 0.4,                    hold: 1 },
+    { name: 'nothing', when: s => s.present < 0.2,                 hold: 2 },
   ],
 };
